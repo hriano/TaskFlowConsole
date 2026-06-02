@@ -51,7 +51,7 @@ namespace TasksFlowConsole
                         DeleteTaskFlow();
                         break;
                     case 7:
-                        FindTaskXIdFlow();
+                        GetTaskByIdFlow();
                         break;
                     case 8:
                         running = false;
@@ -128,11 +128,11 @@ namespace TasksFlowConsole
             
 
         }
-        private void FindTaskXIdFlow()
+        private void GetTaskByIdFlow()
         {
             try
             {
-                var task = _taskService.FindTaskXId(_taskUI.AskIdTask());
+                var task = _taskService.GetTaskById(_taskUI.AskIdTask());
                 _taskUI.ShowTask(task);
             }
             catch(Exception ex)

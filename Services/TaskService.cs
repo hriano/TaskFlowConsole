@@ -37,11 +37,11 @@ namespace TasksFlowConsole.Services
         }
         public List<UserTask> GetPendingTasks()
         {
-            return _repository.GetTaskXStatus(Enums.TaskStatus.Pending);
+            return _repository.GetTaskByStatus(Enums.TaskStatus.Pending);
         }
         public List<UserTask> GetCompletedTasks()
         {
-            return _repository.GetTaskXStatus(Enums.TaskStatus.Completed);
+            return _repository.GetTaskByStatus(Enums.TaskStatus.Completed);
         }
 
         public void MarkAsCompleted(int id)
@@ -54,9 +54,9 @@ namespace TasksFlowConsole.Services
             _repository.DeleteTask(id);
         }
 
-        public UserTask FindTaskXId (int id)
+        public UserTask GetTaskById (int id)
         {
-            return _repository.FindTaskXId(id);
+            return _repository.GetTaskById(id);
         }
     }
 }

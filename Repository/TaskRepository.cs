@@ -25,7 +25,7 @@ namespace TasksFlowConsole.Repository
         {
             return ListTask;
         }
-        public List<UserTask> GetTaskXStatus(Enums.TaskStatus status)
+        public List<UserTask> GetTaskByStatus(Enums.TaskStatus status)
         {
             List<UserTask> TaskXState = new List<UserTask>();
 
@@ -73,7 +73,7 @@ namespace TasksFlowConsole.Repository
             
         }
 
-        public UserTask FindTaskXId(int id)
+        public UserTask GetTaskById(int id)
         {
             var task = ListTask.FirstOrDefault(t => t.Id == id);
 
