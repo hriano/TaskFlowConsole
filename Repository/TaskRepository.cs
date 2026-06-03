@@ -11,10 +11,12 @@ namespace TasksFlowConsole.Repository
     public class TaskRepository
     {
         private List<UserTask> ListTask;
+        
         public TaskRepository()
         {
             ListTask = new List<UserTask>();
         }
+
         public void SetTask(UserTask userTask)
         {
             if (!string.IsNullOrEmpty(userTask.Title))
@@ -30,8 +32,10 @@ namespace TasksFlowConsole.Repository
         {
             List<UserTask> TaskXState = new List<UserTask>();
 
+            //VERIFICAR CON LINQ PARA VALIDAR QUE LA LISTA TENGA ELEMENTOS                        
             foreach (var task in ListTask)
                 {
+                // VALIDAR QUE LA LISTA SI TIENE ESE STATUS, CON LINQ VALIDO UNA SOLA VEZ PORQUE TENDRIA ELEMENTOS
                     if (task.Status == status)  
                         TaskXState.Add(task);
                 }
@@ -43,14 +47,15 @@ namespace TasksFlowConsole.Repository
             return ListTask.Count > 0 ? ListTask.Max(task => task.Id) : 0;
         }
 
-        public void UpdateTaskStatus(int id, Enums.TaskStatus status)
+        public Result UpdateTaskStatus(int id, Enums.TaskStatus status)
         {
             
 
             var task = ListTask.FirstOrDefault(t => t.Id == id);
 
             if (task == null)
-                throw new Exception("Id does not Exist.");
+                return Result.Fail("Id does not Exist.");
+                //throw new Exception("Id does not Exist.");
 
             switch (status)
             {
@@ -58,7 +63,7 @@ namespace TasksFlowConsole.Repository
                     task.MarkAsCompleted();
                     break;
             }
-
+            return Result.Ok();
            
         }
 
