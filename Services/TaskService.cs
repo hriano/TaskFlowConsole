@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TasksFlowConsole.Common;
 using TasksFlowConsole.Models;
 using TasksFlowConsole.Repository;
 using TasksFlowConsole.Validators;
@@ -54,7 +55,7 @@ namespace TasksFlowConsole.Services
             _repository.DeleteTask(id);
         }
 
-        public UserTask GetTaskById (int id)
+        public Result<UserTask> GetTaskById (int id)
         {
             return _repository.GetTaskById(id);
         }

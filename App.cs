@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TasksFlowConsole.Common;
+using TasksFlowConsole.Models;
 using TasksFlowConsole.Services;
 using TasksFlowConsole.UI;
 
@@ -130,15 +132,20 @@ namespace TasksFlowConsole
         }
         private void GetTaskByIdFlow()
         {
-            try
-            {
-                var task = _taskService.GetTaskById(_taskUI.AskIdTask());
-                _taskUI.ShowTask(task);
-            }
-            catch(Exception ex)
-            {
-                _taskUI.ShowError(ex.Message);
-            }
+            
+                int id = _taskUI.AskIdTask();
+
+                Result<UserTask> result = _taskService.GetTaskById(id);
+
+                if (result.IsFailure)
+                {
+                    _taskUI.ShowError(result.Error);
+                    return;
+                }
+
+                _taskUI.ShowTask(result.Value);
+                
+            
         }
         
 

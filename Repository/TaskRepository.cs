@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TasksFlowConsole.Common;
 using TasksFlowConsole.Models;
 
 namespace TasksFlowConsole.Repository
@@ -73,14 +74,15 @@ namespace TasksFlowConsole.Repository
             
         }
 
-        public UserTask GetTaskById(int id)
+        public Result<UserTask> GetTaskById(int id)
         {
             var task = ListTask.FirstOrDefault(t => t.Id == id);
 
             if (task == null)
-                throw new Exception("Task does not exist");
+                return Result<UserTask>.Fail("Task does not exist");
+            
 
-            return task;
+            return Result<UserTask>.Ok(task);
         }
         
         
