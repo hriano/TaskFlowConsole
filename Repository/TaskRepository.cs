@@ -17,7 +17,7 @@ namespace TasksFlowConsole.Repository
             ListTask = new List<UserTask>();
         }
 
-        public void SetTask(UserTask userTask)
+        public void SaveTask(UserTask userTask)
         {
             if (!string.IsNullOrEmpty(userTask.Title))
                 ListTask.Add(userTask);

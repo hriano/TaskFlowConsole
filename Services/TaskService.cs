@@ -18,16 +18,11 @@ namespace TasksFlowConsole.Services
         public UserTask CreateTask (string title)
         {
             
-            //if (!_validator.ValidateTitle(title))
-            //{
-            //    throw new ArgumentException("Title Invalid");
-            //}
-
             int id = _repository.GetMaxId() + 1;
 
-            UserTask _userTask = new UserTask { Id = id, Title = title, Status = Enums.TaskStatus.Pending};
+            UserTask _userTask = UserTask.CreateTask(id, title);
             
-            _repository.SetTask(_userTask);
+            _repository.SaveTask(_userTask);
 
             return _userTask;
                         
