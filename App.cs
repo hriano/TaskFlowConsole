@@ -102,32 +102,31 @@ namespace TasksFlowConsole
         {
             int Id = _taskUI.AskIdTask();
 
-            try
+            Result result = _taskService.MarkAsCompleted(Id);
+
+            if (result.IsFailure)
             {
-                _taskService.MarkAsCompleted(Id);
-                _taskUI.ShowMessage("Task Completed");
-            }
-            catch (Exception ex)
-            {
-                _taskUI.ShowError(ex.Message);
+               _taskUI.ShowError(result.Error);
+                return;
             }
 
-            
+            _taskUI.ShowMessage("Task Updated");
+                     
         }
 
         private void DeleteTaskFlow()
         {
-            
-            try
+
+            int id = _taskUI.AskIdTask();
+
+            Result result = _taskService.DeleteTask(id);
+
+            if (result.IsFailure)
             {
-                _taskService.DeleteTask(_taskUI.AskIdTask());
-                _taskUI.ShowMessage("Task Deleted");
+                _taskUI.ShowError(result.Error);
             }
-            catch (Exception ex)
-            {
-                _taskUI.ShowError(ex.Message);
-            }
-            
+
+            _taskUI.ShowMessage("Task Deleted");
 
         }
         private void GetTaskByIdFlow()

@@ -45,14 +45,14 @@ namespace TasksFlowConsole.Services
             return _repository.GetTaskByStatus(Enums.TaskStatus.Completed);
         }
 
-        public void MarkAsCompleted(int id)
+        public Result MarkAsCompleted(int id)
         {
-            _repository.UpdateTaskStatus(id,Enums.TaskStatus.Completed);
+           return _repository.UpdateTaskStatus(id,Enums.TaskStatus.Completed);
         }
 
-        public void DeleteTask(int id)
+        public Result DeleteTask(int id)
         {
-            _repository.DeleteTask(id);
+            return _repository.DeleteTask(id);
         }
 
         public Result<UserTask> GetTaskById (int id)

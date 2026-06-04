@@ -67,15 +67,17 @@ namespace TasksFlowConsole.Repository
            
         }
 
-        public void DeleteTask(int id)
+        public Result DeleteTask(int id)
         {
            
             var task = ListTask.FirstOrDefault(t => t.Id == id);
 
             if (task == null)
-                throw new Exception("Task does not exist");
-
+                return Result.Fail("Task does not exist");
+                
             ListTask.Remove(task);
+
+            return Result.Ok();
             
         }
 
