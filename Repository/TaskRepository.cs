@@ -19,10 +19,8 @@ namespace TasksFlowConsole.Repository
 
         public void SaveTask(UserTask userTask)
         {
-            if (!string.IsNullOrEmpty(userTask.Title))
-                ListTask.Add(userTask);
-            else
-                throw new ArgumentException("Title Invalid");
+            ListTask.Add(userTask);
+            
         }
         public List<UserTask> GetAllTask ()
         {
