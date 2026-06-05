@@ -39,38 +39,31 @@ namespace TasksFlowConsole.UI
         public string AskTitleTask()
         {
             string Title;
-            bool NoNull; ;
-
-            do
+ 
+            while (true)
             {
-                NoNull = false;
-
                 Console.WriteLine("Input Task:");
                 Title = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(Title))
+                if (!string.IsNullOrWhiteSpace(Title))
                 {
-                    NoNull = true;
-                    ShowError("Title can not be null or empty, try again.");
-                }
+                    return Title;
                     
+                }
 
-            } while (NoNull);
+                ShowError("Title can not be null or empty, try again.");
+            }
 
-            return Title; 
+            
             
         }
 
         public int AskIdTask()
         {
             
-            bool NoNull;
-            
-
-            do
+            while(true)
             {
-                NoNull = false;
-
+                
                 Console.WriteLine("Input Task Id:");
                 var Id = Console.ReadLine();
 
@@ -78,15 +71,12 @@ namespace TasksFlowConsole.UI
                 {
                     return selection;
                 }
-                else
-                {
-                    NoNull = true;
-                    ShowError("Id Invalid, Try again.");
-                }
+                
+                ShowError("Id Invalid, Try again.");
+           
+            } 
 
-            } while (NoNull);
-
-            return -1;
+           
         }
 
         public void ShowError(string message)
