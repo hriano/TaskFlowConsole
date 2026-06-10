@@ -12,17 +12,9 @@ namespace TasksFlowConsole.UI
         public void ShowTask(UserTask task)
         {
             Console.WriteLine($"Id: {task.Id}");
-            //try
-            //{
-                Console.WriteLine($"Title: {task.Title}");
-            //}
-            //catch (Exception ex)
-            //{
-            //    //Console.WriteLine($"Error:{ex.Message}");
-            //    ShowError(ex.Message);
-            //}
             
-            //string taskStatus = task.IsCompleted ? "COMPLETED" : "PENDING";
+            Console.WriteLine($"Title: {task.Title}");
+            
             Console.WriteLine($"Status: {task.Status}");
         }
 

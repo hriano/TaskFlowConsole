@@ -28,17 +28,11 @@ namespace TasksFlowConsole.Repository
         }
         public List<UserTask> GetTaskByStatus(Enums.TaskStatus status)
         {
-            List<UserTask> TaskXState = new List<UserTask>();
 
-            //VERIFICAR CON LINQ PARA VALIDAR QUE LA LISTA TENGA ELEMENTOS                        
-            foreach (var task in ListTask)
-                {
-                // VALIDAR QUE LA LISTA SI TIENE ESE STATUS, CON LINQ VALIDO UNA SOLA VEZ PORQUE TENDRIA ELEMENTOS
-                    if (task.Status == status)  
-                        TaskXState.Add(task);
-                }
+            return ListTask.
+                      Where(task => task.Status == status).
+                      ToList();
 
-            return TaskXState;
         }
         public int GetMaxId()
         {

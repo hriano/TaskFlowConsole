@@ -87,16 +87,40 @@ namespace TasksFlowConsole
         }
         private void ShowAllTaskFlow()
         {
-            _taskUI.ShowListTasks(_taskService.GetAllTasks());
+            List<UserTask> Tasks = _taskService.GetAllTasks();
+
+            if (!Tasks.Any())
+            {
+                _taskUI.ShowMessage("No tasks found");
+                return;
+            }
+
+            _taskUI.ShowListTasks(Tasks);
 
         }
         private void ShowPendingTaskFlow()
         {
-            _taskUI.ShowListTasks(_taskService.GetPendingTasks());
+            List<UserTask> Tasks = _taskService.GetPendingTasks();
+
+            if (!Tasks.Any())
+            {
+                _taskUI.ShowMessage($"No tasks found with status Pending");
+                return;
+            }
+
+            _taskUI.ShowListTasks(Tasks);
         }
         private void ShowCompletedTaskFlow()
         {
-            _taskUI.ShowListTasks(_taskService.GetCompletedTasks());
+            List<UserTask> Tasks = _taskService.GetCompletedTasks();
+
+             if (!Tasks.Any())
+            {
+                _taskUI.ShowMessage($"No tasks found with status Completed");
+                return;
+            }
+
+            _taskUI.ShowListTasks(Tasks);
         }
         private void UpdateStatusFlow()
         {
