@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TasksFlowConsole.Enums
+namespace TasksFlowConsole.Common.Enums
 {
     public enum TaskStatus
     {

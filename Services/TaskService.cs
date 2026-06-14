@@ -33,16 +33,16 @@ namespace TasksFlowConsole.Services
         }
         public List<UserTask> GetPendingTasks()
         {
-            return _repository.GetTaskByStatus(Enums.TaskStatus.Pending);
+            return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Pending);
         }
         public List<UserTask> GetCompletedTasks()
         {
-            return _repository.GetTaskByStatus(Enums.TaskStatus.Completed);
+            return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Completed);
         }
 
         public Result MarkAsCompleted(int id)
         {
-           return _repository.UpdateTaskStatus(id,Enums.TaskStatus.Completed);
+           return _repository.UpdateTaskStatus(id,Common.Enums.TaskStatus.Completed);
         }
 
         public Result DeleteTask(int id)

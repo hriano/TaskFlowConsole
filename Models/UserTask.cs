@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TasksFlowConsole.Enums;
 
 namespace TasksFlowConsole.Models
 {
@@ -12,13 +11,13 @@ namespace TasksFlowConsole.Models
         
         public string Title { get; }
         public int Id { get; }
-        public Enums.TaskStatus Status { get; private set; }
+        public Common.Enums.TaskStatus Status { get; private set; }
 
         private UserTask(int id, string title)
         {
             Id = id;
             Title = title;
-            Status = Enums.TaskStatus.Pending;
+            Status = Common.Enums.TaskStatus.Pending;
         }
 
         public static UserTask CreateTask(int id, string title)
@@ -37,7 +36,7 @@ namespace TasksFlowConsole.Models
         public void MarkAsCompleted()
         {
             //_isCompleted = true;
-            Status = Enums.TaskStatus.Completed;
+            Status = Common.Enums.TaskStatus.Completed;
 
         }
         

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TasksFlowConsole.Models;
 
-namespace TasksFlowConsole.UI
+namespace TasksFlowConsole.Presentation.Views
 {
     class TaskConsoleUI
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TasksFlowConsole.UI
+namespace TasksFlowConsole.Presentation.Views
 {
     public class MainMenuUI
     {

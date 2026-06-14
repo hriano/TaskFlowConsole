@@ -26,7 +26,7 @@ namespace TasksFlowConsole.Repository
         {
             return ListTask;
         }
-        public List<UserTask> GetTaskByStatus(Enums.TaskStatus status)
+        public List<UserTask> GetTaskByStatus(Common.Enums.TaskStatus status)
         {
 
             return ListTask.
@@ -39,7 +39,7 @@ namespace TasksFlowConsole.Repository
             return ListTask.Count > 0 ? ListTask.Max(task => task.Id) : 0;
         }
 
-        public Result UpdateTaskStatus(int id, Enums.TaskStatus status)
+        public Result UpdateTaskStatus(int id, Common.Enums.TaskStatus status)
         {
             
 
@@ -51,7 +51,7 @@ namespace TasksFlowConsole.Repository
 
             switch (status)
             {
-                case Enums.TaskStatus.Completed:
+                case Common.Enums.TaskStatus.Completed:
                     task.MarkAsCompleted();
                     break;
             }
