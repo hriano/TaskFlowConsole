@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TasksFlowConsole.Common;
 using TasksFlowConsole.Models;
+using TasksFlowConsole.Presentation.Views;
 using TasksFlowConsole.Services;
-using TasksFlowConsole.UI;
 
 namespace TasksFlowConsole
 {

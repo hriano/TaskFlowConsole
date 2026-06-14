@@ -11,11 +11,11 @@ namespace TasksFlowConsole.Presentation.Views
     {
         public void ShowTask(UserTask task)
         {
-            Console.WriteLine($"Id: {task.Id}");
+            Console.WriteLine($"Id: {task.Id} - {task.Title} : {task.Status} ");
             
-            Console.WriteLine($"Title: {task.Title}");
+            Console.WriteLine($"------------ || ------------");
             
-            Console.WriteLine($"Status: {task.Status}");
+            
         }
 
         public void ShowListTasks(List<UserTask> listTasks)
