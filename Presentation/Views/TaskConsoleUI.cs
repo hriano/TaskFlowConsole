@@ -7,11 +7,11 @@ using TasksFlowConsole.Models;
 
 namespace TasksFlowConsole.Presentation.Views
 {
-    class TaskConsoleUI
+    class TaskConsoleUI : ITaskView
     {
         public void ShowTask(UserTask task)
         {
-            Console.WriteLine($"Id: {task.Id} - {task.Title} : {task.Status} ");
+            Console.WriteLine($"{task.Id} - {task.Title} : {task.Status} ");
             
             Console.WriteLine($"------------ || ------------");
             
@@ -50,7 +50,7 @@ namespace TasksFlowConsole.Presentation.Views
             
         }
 
-        public int AskIdTask()
+        public int AskTaskId()
         {
             
             while(true)
@@ -84,5 +84,7 @@ namespace TasksFlowConsole.Presentation.Views
            
             
         }
+
+     
     }
 }

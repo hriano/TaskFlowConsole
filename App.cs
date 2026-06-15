@@ -30,7 +30,7 @@ namespace TasksFlowConsole
 
             while(running)
             {
-                int option = _menuUI.ShowMenu();
+                int option = _menuUI.ShowMainMenu();
                 
                 switch(option)
                 {
@@ -124,7 +124,7 @@ namespace TasksFlowConsole
         }
         private void UpdateStatusFlow()
         {
-            int Id = _taskUI.AskIdTask();
+            int Id = _taskUI.AskTaskId();
 
             Result result = _taskService.MarkAsCompleted(Id);
 
@@ -141,7 +141,7 @@ namespace TasksFlowConsole
         private void DeleteTaskFlow()
         {
 
-            int id = _taskUI.AskIdTask();
+            int id = _taskUI.AskTaskId();
 
             Result result = _taskService.DeleteTask(id);
 
@@ -156,7 +156,7 @@ namespace TasksFlowConsole
         private void GetTaskByIdFlow()
         {
             
-                int id = _taskUI.AskIdTask();
+                int id = _taskUI.AskTaskId();
 
                 Result<UserTask> result = _taskService.GetTaskById(id);
 

@@ -9,16 +9,12 @@ namespace TasksFlowConsole.Presentation.Views
     public class MainMenuUI
     {
  
-        public int ShowMenu()
+        public int ShowMainMenu()
         {
             Console.WriteLine("1. Create Task");
-            Console.WriteLine("2. Show Tasks");
-            Console.WriteLine("3. Show Pending Tasks");
-            Console.WriteLine("4. Show Completed Tasks");
-            Console.WriteLine("5. Complete Tasks");
-            Console.WriteLine("6. Delete Task");
-            Console.WriteLine("7. Finding Task x ID");
-            Console.WriteLine("8. Exit");
+            Console.WriteLine("2. Complete Tasks");
+            Console.WriteLine("3. Delete Task");
+            Console.WriteLine("4. Exit");
 
             var input = Console.ReadLine();
             if (int.TryParse(input, out var selection))
