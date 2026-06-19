@@ -88,7 +88,8 @@ namespace TasksFlowConsole.Presentation.Views
 
         public string AskMenuOption()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Input option:");
+            return Console.ReadLine();
         }
 
         public void ShowMenu(List<MenuOption> options)
