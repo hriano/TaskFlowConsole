@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TasksFlowConsole.Common;
 using TasksFlowConsole.Models;
+using TasksFlowConsole.Presentation.Menus;
 using TasksFlowConsole.Presentation.Views;
 using TasksFlowConsole.Services;
 
@@ -12,14 +13,14 @@ namespace TasksFlowConsole
 {
     public class App
     {
-        private readonly MainMenuUI _menuUI;
-        private readonly TaskConsoleUI _taskUI;
+        private readonly MainMenu _menuUI;
+        private readonly TaskConsoleView _taskUI;
         private readonly TaskService _taskService;
 
         public App()
         {
-            _menuUI = new MainMenuUI();
-            _taskUI = new TaskConsoleUI();
+            _menuUI = new MainMenu();
+            _taskUI = new TaskConsoleView();
             _taskService = new TaskService();
 
         }
