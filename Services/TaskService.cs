@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using TasksFlowConsole.Common;
 using TasksFlowConsole.Models;
 using TasksFlowConsole.Repository;
-using TasksFlowConsole.Validators;
+
 
 namespace TasksFlowConsole.Services
 {
-    class TaskService
+    public class TaskService
     {
         //private readonly TaskValidator _validator = new TaskValidator();
         private TaskRepository _repository = new TaskRepository();

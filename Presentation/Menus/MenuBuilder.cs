@@ -17,7 +17,7 @@ namespace TasksFlowConsole.Presentation.Menus
             Options.Add(new MenuOption(optionNumber, description, execute));
             
             return this;
-
+            
         }
 
         public MenuBuilder AddExitOption(string description)

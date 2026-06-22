@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TasksFlowConsole.Presentation.Views
+namespace TasksFlowConsole.Presentation.Menus
 {
-    public class MainMenuUI
+    public class MainMenu
     {
  
         public int ShowMainMenu()

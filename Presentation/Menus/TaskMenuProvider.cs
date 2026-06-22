@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TasksFlowConsole.Presentation.Views
+namespace TasksFlowConsole.Presentation.Menus
 {
-    public class SearchMenu
+    public class TaskMenuProvider
     {
         public int ShowSearchMenu()
         {
@@ -25,5 +25,7 @@ namespace TasksFlowConsole.Presentation.Views
 
             return -1;
         }
+
+       
     }
 }
