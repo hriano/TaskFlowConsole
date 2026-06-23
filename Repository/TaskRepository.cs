@@ -39,23 +39,18 @@ namespace TasksFlowConsole.Repository
             return ListTask.Count > 0 ? ListTask.Max(task => task.Id) : 0;
         }
 
-        public Result UpdateTaskStatus(int id, Common.Enums.TaskStatus status)
+        public Result Update(UserTask task)
         {
+
+            int index = ListTask.FindIndex(t => t.Id == task.Id);
             
-
-            var task = ListTask.FirstOrDefault(t => t.Id == id);
-
-            if (task == null)
-                return Result.Fail("Id does not Exist.");
-                //throw new Exception("Id does not Exist.");
-
-            switch (status)
+            if (index >= 0)
             {
-                case Common.Enums.TaskStatus.Completed:
-                    task.MarkAsCompleted();
-                    break;
+                ListTask[index] = task;
             }
+
             return Result.Ok();
+
            
         }
 

@@ -42,7 +42,23 @@ namespace TasksFlowConsole.Services
 
         public Result MarkAsCompleted(int id)
         {
-           return _repository.UpdateTaskStatus(id,Common.Enums.TaskStatus.Completed);
+            var taskResult = _repository.GetTaskById(id);
+
+            if (taskResult.IsFailure)
+                return Result.Fail(taskResult.Error);
+
+            UserTask task = taskResult.Value;
+
+            var result = task.MarkAsCompleted();
+
+            if (result.IsFailure)
+            {
+                return result;
+            }
+            
+            _repository.Update(task);
+
+            return Result.Ok();
         }
 
         public Result DeleteTask(int id)

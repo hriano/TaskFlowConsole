@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TasksFlowConsole.Common;
 
 namespace TasksFlowConsole.Models
 {
@@ -33,10 +34,17 @@ namespace TasksFlowConsole.Models
 
 
 
-        public void MarkAsCompleted()
+        public Result MarkAsCompleted()
         {
             //_isCompleted = true;
+            if (Status == Common.Enums.TaskStatus.Completed)
+            {
+                return Result.Fail("Task is already completed");
+            }
+
             Status = Common.Enums.TaskStatus.Completed;
+
+            return Result.Ok();
 
         }
         
