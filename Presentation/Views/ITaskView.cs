@@ -17,7 +17,7 @@ namespace TasksFlowConsole.Presentation.Views
         void ShowError(string message);
         void ShowMessage(string message);
         void ShowTask(UserTask userTask);
-        void ShowListTasks(List<UserTask> tasks);
+        void ShowListTasks(IReadOnlyList<UserTask> tasks);
 
     }
 }

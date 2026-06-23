@@ -27,15 +27,15 @@ namespace TasksFlowConsole.Services
             return _userTask;
                         
         }
-        public List<UserTask> GetAllTasks()
+        public IReadOnlyList<UserTask> GetAllTasks()
         {
            return _repository.GetAllTask();
         }
-        public List<UserTask> GetPendingTasks()
+        public IReadOnlyList<UserTask> GetPendingTasks()
         {
             return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Pending);
         }
-        public List<UserTask> GetCompletedTasks()
+        public IReadOnlyList<UserTask> GetCompletedTasks()
         {
             return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Completed);
         }

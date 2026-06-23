@@ -22,16 +22,16 @@ namespace TasksFlowConsole.Repository
             ListTask.Add(userTask);
             
         }
-        public List<UserTask> GetAllTask ()
+        public IReadOnlyList<UserTask> GetAllTask ()
         {
-            return ListTask;
+            return ListTask.AsReadOnly();
         }
-        public List<UserTask> GetTaskByStatus(Common.Enums.TaskStatus status)
+        public IReadOnlyList<UserTask> GetTaskByStatus(Common.Enums.TaskStatus status)
         {
 
             return ListTask.
                       Where(task => task.Status == status).
-                      ToList();
+                      ToList().AsReadOnly();
             
         }
         public int GetMaxId()

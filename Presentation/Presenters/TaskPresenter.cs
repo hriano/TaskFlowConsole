@@ -129,7 +129,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowAllTaskFlow()
         {
-            List<UserTask> Tasks = _taskService.GetAllTasks();
+            IReadOnlyList<UserTask> Tasks = _taskService.GetAllTasks();
 
             if (!Tasks.Any())
             {
@@ -142,7 +142,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowPendingTaskFlow()
         {
-            List<UserTask> Tasks = _taskService.GetPendingTasks();
+            IReadOnlyList<UserTask> Tasks = _taskService.GetPendingTasks();
 
             if (!Tasks.Any())
             {
@@ -154,7 +154,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowCompletedTaskFlow()
         {
-            List<UserTask> Tasks = _taskService.GetCompletedTasks();
+            IReadOnlyList<UserTask> Tasks = _taskService.GetCompletedTasks();
 
             if (!Tasks.Any())
             {

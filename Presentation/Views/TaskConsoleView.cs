@@ -19,7 +19,7 @@ namespace TasksFlowConsole.Presentation.Views
             
         }
 
-        public void ShowListTasks(List<UserTask> listTasks)
+        public void ShowListTasks(IReadOnlyList<UserTask> listTasks)
         {
 
             foreach (var task in listTasks)
@@ -99,5 +99,7 @@ namespace TasksFlowConsole.Presentation.Views
                 Console.WriteLine($"{option.Option}.{option.Description}");
             }
         }
+
+    
     }
 }
