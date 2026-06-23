@@ -61,6 +61,30 @@ namespace TasksFlowConsole.Services
             return Result.Ok();
         }
 
+        public Result MarkAsPending(int id)
+        {
+            var taskResult = _repository.GetTaskById(id);
+
+            if (taskResult.IsFailure)
+            {
+                return Result.Fail(taskResult.Error);
+            }
+
+            UserTask task = taskResult.Value;
+
+            var result = task.MarkAsPending();
+
+            if (result.IsFailure)
+            {
+                return result;
+            }
+
+            _repository.Update(task);
+
+            return Result.Ok();
+
+        }
+
         public Result DeleteTask(int id)
         {
             return _repository.DeleteTask(id);

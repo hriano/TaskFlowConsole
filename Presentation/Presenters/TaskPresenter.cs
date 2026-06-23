@@ -32,7 +32,9 @@ namespace TasksFlowConsole.Presentation.Presenters
                 var menu = new MenuBuilder()
                     .AddOption("Create Task", CreateTaskFlow)
                     .AddOption("Complete Task", CompleteTaskFlow)
+                    .AddOption("Change to Pending", PendingTaskFlow)
                     .AddOption("Delete Task", DeleteTaskFlow)
+                    .AddOption("Show all tasks", ShowAllTaskFlow)
                     .AddOption("Search Menu", ShowSearchMenu)
                     .AddExitOption("Exit")
                     .Build();
@@ -166,9 +168,25 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void CompleteTaskFlow()
         {
-            int Id = _view.AskTaskId();
+            int id = _view.AskTaskId();
 
-            Result result = _taskService.MarkAsCompleted(Id);
+            Result result = _taskService.MarkAsCompleted(id);
+
+            if (result.IsFailure)
+            {
+                _view.ShowError(result.Error);
+                return;
+            }
+
+            _view.ShowMessage("Task Updated");
+
+        }
+
+        private void PendingTaskFlow()
+        {
+            int id = _view.AskTaskId();
+
+            Result result = _taskService.MarkAsPending(id);
 
             if (result.IsFailure)
             {

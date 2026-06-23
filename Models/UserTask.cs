@@ -36,13 +36,26 @@ namespace TasksFlowConsole.Models
 
         public Result MarkAsCompleted()
         {
-            //_isCompleted = true;
+            
             if (Status == Common.Enums.TaskStatus.Completed)
             {
                 return Result.Fail("Task is already completed");
             }
 
             Status = Common.Enums.TaskStatus.Completed;
+
+            return Result.Ok();
+
+        }
+
+        public Result MarkAsPending()
+        {
+            if (Status == Common.Enums.TaskStatus.Pending)
+            {
+                return Result.Fail("Task is already Pending");
+            }
+
+            Status = Common.Enums.TaskStatus.Pending;
 
             return Result.Ok();
 
