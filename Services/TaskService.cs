@@ -13,9 +13,14 @@ namespace TasksFlowConsole.Services
     public class TaskService : ITaskService
     {
         //private readonly TaskValidator _validator = new TaskValidator();
-        private TaskRepository _repository = new TaskRepository();
+        private readonly IRepository _repository ;
 
-        public UserTask CreateTask (string title)
+        public TaskService(IRepository repository)
+        {
+            _repository = repository;
+        }
+
+         public UserTask CreateTask (string title)
         {
             
             int id = _repository.GetMaxId() + 1;
