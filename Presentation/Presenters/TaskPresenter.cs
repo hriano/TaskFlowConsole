@@ -15,9 +15,9 @@ namespace TasksFlowConsole.Presentation.Presenters
     public class TaskPresenter
     {
         private readonly ITaskView _view;
-        private readonly TaskService _taskService;
+        private readonly ITaskService _taskService;
 
-        public TaskPresenter (ITaskView view, TaskService taskService )
+        public TaskPresenter (ITaskView view, ITaskService taskService )
         {
             _view = view;
             _taskService = taskService;

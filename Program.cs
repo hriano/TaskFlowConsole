@@ -14,9 +14,10 @@ internal class Program
     private static void Main(string[] args)
     {
         ITaskView view = new TaskConsoleView();
+        ITaskService taskService = new TaskService();
 
         var repository = new TaskRepository();
-        var taskService = new TaskService();
+       // var taskService = new TaskService();
         var taskPresenter = new TaskPresenter(view, taskService);
 
         var app = new App(taskPresenter);
