@@ -10,7 +10,7 @@ using TasksFlowConsole.Repository;
 
 namespace TasksFlowConsole.Services
 {
-    public class TaskService : ITaskService
+    public class TaskService : ITaskServiceAdmin
     {
         //private readonly TaskValidator _validator = new TaskValidator();
         private readonly IRepositoryAdmin _repository ;

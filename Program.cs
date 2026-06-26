@@ -15,7 +15,7 @@ internal class Program
     {
         ITaskView view = new TaskConsoleView();
         IRepositoryAdmin repository = new TaskRepository();
-        ITaskService taskService = new TaskService(repository);
+        ITaskServiceAdmin taskService = new TaskService(repository);
 
         //var repository = new TaskRepository();
        // var taskService = new TaskService();
