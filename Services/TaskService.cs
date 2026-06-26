@@ -13,9 +13,9 @@ namespace TasksFlowConsole.Services
     public class TaskService : ITaskService
     {
         //private readonly TaskValidator _validator = new TaskValidator();
-        private readonly IRepository _repository ;
+        private readonly IRepositoryAdmin _repository ;
 
-        public TaskService(IRepository repository)
+        public TaskService(IRepositoryAdmin repository)
         {
             _repository = repository;
         }

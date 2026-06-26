@@ -8,7 +8,7 @@ using TasksFlowConsole.Models;
 
 namespace TasksFlowConsole.Repository
 {
-    public class TaskRepository : IRepository
+    public class TaskRepository : IRepositoryAdmin, IRepositoryReport
     {
         private List<UserTask> ListTask;
         

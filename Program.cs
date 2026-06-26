@@ -14,7 +14,7 @@ internal class Program
     private static void Main(string[] args)
     {
         ITaskView view = new TaskConsoleView();
-        IRepository repository = new TaskRepository();
+        IRepositoryAdmin repository = new TaskRepository();
         ITaskService taskService = new TaskService(repository);
 
         //var repository = new TaskRepository();
