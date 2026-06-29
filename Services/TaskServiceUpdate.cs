@@ -10,41 +10,17 @@ using TasksFlowConsole.Repository;
 
 namespace TasksFlowConsole.Services
 {
-    public class TaskService : ITaskServiceAdmin
+    public class TaskServiceUpdate : ITaskServiceUpdate
     {
         //private readonly TaskValidator _validator = new TaskValidator();
         private readonly IRepositoryAdmin _repository ;
 
-        public TaskService(IRepositoryAdmin repository)
+        public TaskServiceUpdate(IRepositoryAdmin repository)
         {
             _repository = repository;
         }
 
-         public UserTask CreateTask (string title)
-        {
-            
-            int id = _repository.GetMaxId() + 1;
-
-            UserTask _userTask = UserTask.CreateTask(id, title);
-            
-            _repository.SaveTask(_userTask);
-
-            return _userTask;
-                        
-        }
-        public IReadOnlyList<UserTask> GetAllTasks()
-        {
-           return _repository.GetAllTask();
-        }
-        public IReadOnlyList<UserTask> GetPendingTasks()
-        {
-            return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Pending);
-        }
-        public IReadOnlyList<UserTask> GetCompletedTasks()
-        {
-            return _repository.GetTaskByStatus(Common.Enums.TaskStatus.Completed);
-        }
-
+               
         public Result MarkAsCompleted(int id)
         {
             var taskResult = _repository.GetTaskById(id);
@@ -90,14 +66,5 @@ namespace TasksFlowConsole.Services
 
         }
 
-        public Result DeleteTask(int id)
-        {
-            return _repository.DeleteTask(id);
-        }
-
-        public Result<UserTask> GetTaskById (int id)
-        {
-            return _repository.GetTaskById(id);
-        }
     }
 }

@@ -15,12 +15,16 @@ namespace TasksFlowConsole.Presentation.Presenters
     public class TaskPresenter
     {
         private readonly ITaskView _view;
-        private readonly ITaskServiceAdmin _taskService;
+        private readonly ITaskServiceAdmin _taskServiceAdmin;
+        private readonly ITaskServiceReport _taskServiceReport;
+        private readonly ITaskServiceUpdate _taskServiceUpdate;
 
-        public TaskPresenter (ITaskView view, ITaskServiceAdmin taskService )
+        public TaskPresenter (ITaskView view, ITaskServiceAdmin taskService, ITaskServiceReport taskServiceReport, ITaskServiceUpdate taskServiceUpdate)
         {
             _view = view;
-            _taskService = taskService;
+            _taskServiceAdmin = taskService;
+            _taskServiceReport = taskServiceReport;
+            _taskServiceUpdate = taskServiceUpdate;
         }
 
         public void ShowTaskMainMenu()
@@ -119,7 +123,7 @@ namespace TasksFlowConsole.Presentation.Presenters
 
             try
             {
-                var Task = _taskService.CreateTask(Title);
+                var Task = _taskServiceAdmin.CreateTask(Title);
 
                 _view.ShowTask(Task);
             }
@@ -131,7 +135,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowAllTaskFlow()
         {
-            IReadOnlyList<UserTask> Tasks = _taskService.GetAllTasks();
+            IReadOnlyList<UserTask> Tasks = _taskServiceReport.GetAllTasks();
 
             if (!Tasks.Any())
             {
@@ -144,7 +148,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowPendingTaskFlow()
         {
-            IReadOnlyList<UserTask> Tasks = _taskService.GetPendingTasks();
+            IReadOnlyList<UserTask> Tasks = _taskServiceReport.GetPendingTasks();
 
             if (!Tasks.Any())
             {
@@ -156,7 +160,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         }
         private void ShowCompletedTaskFlow()
         {
-            IReadOnlyList<UserTask> Tasks = _taskService.GetCompletedTasks();
+            IReadOnlyList<UserTask> Tasks = _taskServiceReport.GetCompletedTasks();
 
             if (!Tasks.Any())
             {
@@ -170,7 +174,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         {
             int id = _view.AskTaskId();
 
-            Result result = _taskService.MarkAsCompleted(id);
+            Result result = _taskServiceUpdate.MarkAsCompleted(id);
 
             if (result.IsFailure)
             {
@@ -186,7 +190,7 @@ namespace TasksFlowConsole.Presentation.Presenters
         {
             int id = _view.AskTaskId();
 
-            Result result = _taskService.MarkAsPending(id);
+            Result result = _taskServiceUpdate.MarkAsPending(id);
 
             if (result.IsFailure)
             {
@@ -203,7 +207,7 @@ namespace TasksFlowConsole.Presentation.Presenters
 
             int id = _view.AskTaskId();
 
-            Result result = _taskService.DeleteTask(id);
+            Result result = _taskServiceAdmin.DeleteTask(id);
 
             if (result.IsFailure)
             {
@@ -218,7 +222,7 @@ namespace TasksFlowConsole.Presentation.Presenters
 
             int id = _view.AskTaskId();
 
-            Result<UserTask> result = _taskService.GetTaskById(id);
+            Result<UserTask> result = _taskServiceReport.GetTaskById(id);
 
             if (result.IsFailure)
             {

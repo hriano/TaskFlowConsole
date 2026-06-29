@@ -16,7 +16,8 @@ namespace TasksFlowConsole.Services
         IReadOnlyList<UserTask> GetPendingTasks();
 
         IReadOnlyList<UserTask> GetCompletedTasks();
-              
+
+        Result<UserTask> GetTaskById(int id);
         
     }
 }

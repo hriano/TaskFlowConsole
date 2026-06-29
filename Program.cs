@@ -14,12 +14,16 @@ internal class Program
     private static void Main(string[] args)
     {
         ITaskView view = new TaskConsoleView();
-        IRepositoryAdmin repository = new TaskRepository();
-        ITaskServiceAdmin taskService = new TaskService(repository);
+        //IRepositoryAdmin repository = new TaskRepository();
+        //IRepositoryReport repositoryReport = new 
+        TaskRepository repository = new TaskRepository();
+        ITaskServiceAdmin taskServiceAdmin = new TaskServiceAdmin(repository);
+        ITaskServiceReport taskServiceReport = new TaskServiceReport(repository);
+        ITaskServiceUpdate taskServiceUpdate = new TaskServiceUpdate(repository);
 
         //var repository = new TaskRepository();
        // var taskService = new TaskService();
-        var taskPresenter = new TaskPresenter(view, taskService);
+        var taskPresenter = new TaskPresenter(view, taskServiceAdmin,taskServiceReport, taskServiceUpdate);
 
         var app = new App(taskPresenter);
         app.Run();
