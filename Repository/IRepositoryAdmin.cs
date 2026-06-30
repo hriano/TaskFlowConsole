@@ -21,7 +21,7 @@ namespace TasksFlowConsole.Repository
 
         Result DeleteTask(int id);
 
-        Result<UserTask> GetTaskById(int id);
+        
 
     }
 }
